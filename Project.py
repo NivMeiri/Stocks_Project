@@ -205,3 +205,7 @@ print(11 and 9)
 
 
 print("hello my name is shmul")
+print("hello my name is shmul")
+print("hello my name is shmul")
+print("hello my name is shmul")
+print("hello my name is shmul")
