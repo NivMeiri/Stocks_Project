@@ -202,3 +202,6 @@ def digital_root1(n):
     return n%9 or n and 9
 print(digital_root1(11))
 print(11 and 9)
+
+
+print("hello my name is shmul")
