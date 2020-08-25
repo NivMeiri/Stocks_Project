@@ -13,6 +13,7 @@
 
 import http.client
 import csv
+from Stock import Stock
 
 conn = http.client.HTTPSConnection("alpha-vantage.p.rapidapi.com")
 
@@ -20,9 +21,9 @@ headers = {
     'x-rapidapi-host': "alpha-vantage.p.rapidapi.com",
     'x-rapidapi-key': "ef9004ce3fmsh5276f7f8914de91p1b22ebjsnf005b4087869"
 }
-names = ["TSLA"
-    #, "BAC", "WMT", "NAV"
-        ]
+names = ["TSLA" , "BAC"
+         # , "WMT", "NAV"
+         ]
 
 # create a csv file object and open
 with open('sample.csv', 'wt') as csvfile:
@@ -42,13 +43,18 @@ with open('sample.csv', 'wt') as csvfile:
         res = conn.getresponse()
         data = res.read()
         decoded = data.decode("utf-8")
-        print(decoded)
+        #print(decoded)
 
         decoded_splitted = decoded.split('\n')
         stock_info = []
+        # print ( decoded_splitted)
         for i in range(2, len(decoded_splitted) - 2):
             split_by_dots = decoded_splitted[i].split(':')
             stock_info.append(split_by_dots[1])
+            #print(split_by_dots[1])
         writer.writerow(stock_info)
-    # print(data.decode("utf-8"))
+        new_stock = Stock(stock_info)
+        print("*****")
+        new_stock.print()
 
+    # print(data.decode("utf-8"))
