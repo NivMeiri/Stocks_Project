@@ -201,8 +201,13 @@ def digital_root(n):
 def digital_root1(n):
     return n%9 or n and 9
 print(digital_root1(11))
-print(11 and 9)
 
+
+
+list=[1,2,4,5]
+list2=list[:1]+list[2:]
+print(list2)
+#[9,9,1,2,1,1,3,1,9,9,0,0,0,0,0,0,0,0,0,0]
 
 print("hello my name is shmul")
 print("hello my name is shmul")
